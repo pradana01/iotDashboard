@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import {increment, rejectUp, machine} from '../../store/actions';
 
@@ -8,11 +8,21 @@ import ButtonAction from "../../components/button-action"
 
 import './style.css'
 
+function start (input, reject) {
+    let rng = Math.round(Math.random());
+    return rng;
+}
+
+
 function Dashboard() {
-    const value = useSelector((state) => state.input)
-    const reject = useSelector((state) => state.reject)
-    const dispatch = useDispatch()
-    // const [input] = useState()
+    // const value = useSelector((state) => state.input)
+    // const reject = useSelector((state) => state.reject)
+    // const dispatch = useDispatch()
+    let [input, setInput] = useState(0);
+    let [reject, setReject] = useState(0);
+    let [time, setTime] = useState();
+
+
 
     return (
         <div className="dashboard">
@@ -26,7 +36,7 @@ function Dashboard() {
                 <tbody>
                     <tr>
                         <td className="border border-slate-700 ...">Input</td>
-                        <td className="border border-slate-700 ...">{value}</td>
+                        <td className="border border-slate-700 ...">{input}</td>
                         <td className="border border-slate-700 ...">61.93%</td>
                     </tr>
                     <tr>
@@ -42,19 +52,36 @@ function Dashboard() {
                 </tbody>
             </table>
 
-            <ButtonAction />
             <button 
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => dispatch(increment(value))}
+                onClick={() => setInput(input+1)}
             >Input UP</button>
             <button 
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => dispatch(rejectUp(reject))}
+                onClick={() => setReject(reject+1)}
             >Reject UP</button>
             <button 
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                onClick={() => machine(true, 1000, value)}
+                onClick={() => {
+                    let timer = setInterval (()=> {
+                        let rng = Math.round(Math.random());
+                        if (rng) {
+                            setInput(input => input+1)
+                        } else {
+                            setReject(reject => reject+1)
+                        }
+                    }, 1000)
+                    setTime(timer);
+                }}
             >Start Machine</button>
+            <button
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                onClick={() => {
+                    clearInterval(time)
+                }}
+            >
+                Stop Machine
+            </button>
         </div>
     )
 };
