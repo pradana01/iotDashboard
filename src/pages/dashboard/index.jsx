@@ -28,18 +28,12 @@ function Dashboard() {
         <div className="dashboard bg-gray-200 mx-auto w-screen h-screen px-4/12 flex flex-col justify-center items-center">
             <div className="flex">
                 <div className="mt-12 mx-3 flex flex-col">
-                    <button
-                        class="w-36 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    <ButtonAction
                         onClick={() => setInput(input + 1)}
-                    >
-                        Input UP
-                    </button>
-                    <button
-                        class="w-36 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    >Input UP</ButtonAction>
+                    <ButtonAction
                         onClick={() => setReject(reject + 1)}
-                    >
-                        Reject UP
-                    </button>
+                    >Reject UP</ButtonAction>
                 </div>
 
                 <table className="bg-gray-100 border-separate border border-slate-500 w-1/5">
@@ -50,26 +44,25 @@ function Dashboard() {
                     </thead>
                     <tbody>
                         <tr className="text-left">
-                            <td className="border border-slate-700 text-left">Input</td>
+                            <td className="border border-slate-700 text-left font-bold">Input</td>
                             <td className="border border-slate-700 text-right">{input}</td>
-                            <td className="border border-slate-700 text-right">61.93%</td>
+                            <td className="border border-slate-700 text-right">{Math.floor(input/(input+reject) * 100)}%</td>
                         </tr>
                         <tr className="text-right">
-                            <td className="border border-slate-700 text-left">Reject</td>
+                            <td className="border border-slate-700 text-left font-bold">Reject</td>
                             <td className="border border-slate-700 text-right">{reject}</td>
-                            <td className="border border-slate-700 text-right">1.59%</td>
+                            <td className="border border-slate-700 text-right">{Math.floor(reject/(input+reject) * 100)}%</td>
                         </tr>
                         <tr className="text-right">
-                            <td className="border border-slate-700 text-left">Output</td>
-                            <td className="border border-slate-700 text-right">4,259</td>
+                            <td className="border border-slate-700 text-left font-bold">Output</td>
+                            <td className="border border-slate-700 text-right">{input+reject}</td>
                             <td className="border border-slate-700 text-right">98.41%</td>
                         </tr>
                     </tbody>
                 </table>
 
                 <div className="mt-12 mx-3 flex flex-col">
-                    <button
-                        class="w-36 my-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    <ButtonAction
                         onClick={() => {
                             let timer = setInterval(() => {
                                 let rng = Math.round(Math.random());
@@ -81,16 +74,13 @@ function Dashboard() {
                             }, 1000)
                             setTime(timer);
                         }}
-                    >
-                        Start Machine</button>
-                    <button
-                        class="w-36 my-1 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                    >Start Machine</ButtonAction>
+                    <ButtonAction
+                        injectClass="bg-red-500 hover:bg-red-700"
                         onClick={() => {
                             clearInterval(time)
                         }}
-                    >
-                        Stop Machine
-                    </button>
+                    >Stop Machine</ButtonAction>
                 </div>
             </div>
             <span 
