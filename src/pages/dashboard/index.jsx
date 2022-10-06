@@ -46,12 +46,12 @@ function Dashboard() {
                         <tr className="text-left">
                             <td className="border border-slate-700 text-left font-bold">Input</td>
                             <td className="border border-slate-700 text-right">{input}</td>
-                            <td className="border border-slate-700 text-right">{Math.floor(input/(input+reject) * 100)}%</td>
+                            <td className="border border-slate-700 text-right">{Math.floor(input/(input+reject) * 100) || 0}%</td>
                         </tr>
                         <tr className="text-right">
                             <td className="border border-slate-700 text-left font-bold">Reject</td>
                             <td className="border border-slate-700 text-right">{reject}</td>
-                            <td className="border border-slate-700 text-right">{Math.floor(reject/(input+reject) * 100)}%</td>
+                            <td className="border border-slate-700 text-right">{Math.floor(reject/(input+reject) * 100) || 0}%</td>
                         </tr>
                         <tr className="text-right">
                             <td className="border border-slate-700 text-left font-bold">Output</td>
