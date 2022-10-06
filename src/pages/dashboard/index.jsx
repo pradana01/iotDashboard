@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from 'react-redux'
-import { increment, rejectUp, machine } from '../../store/actions';
+// import { useSelector, useDispatch } from 'react-redux'
+// import { increment, rejectUp, machine } from '../../store/actions';
 
 
 // * Import components
@@ -8,10 +8,10 @@ import ButtonAction from "../../components/button-action"
 
 import './style.css'
 
-function start(input, reject) {
-    let rng = Math.round(Math.random());
-    return rng;
-}
+// function start(input, reject) {
+//     let rng = Math.round(Math.random());
+//     return rng;
+// }
 
 
 function Dashboard() {
