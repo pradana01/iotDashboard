@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/iyo-dashboard/static/css/main.4db76a54.css",
+    "main.js": "/iyo-dashboard/static/js/main.0584a39a.js",
+    "static/js/787.41757d04.chunk.js": "/iyo-dashboard/static/js/787.41757d04.chunk.js",
+    "index.html": "/iyo-dashboard/index.html",
+    "main.4db76a54.css.map": "/iyo-dashboard/static/css/main.4db76a54.css.map",
+    "main.0584a39a.js.map": "/iyo-dashboard/static/js/main.0584a39a.js.map",
+    "787.41757d04.chunk.js.map": "/iyo-dashboard/static/js/787.41757d04.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4db76a54.css",
+    "static/js/main.0584a39a.js"
+  ]
+}
