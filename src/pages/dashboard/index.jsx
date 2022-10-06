@@ -56,7 +56,7 @@ function Dashboard() {
                         <tr className="text-right">
                             <td className="border border-slate-700 text-left font-bold">Output</td>
                             <td className="border border-slate-700 text-right">{input+reject}</td>
-                            <td className="border border-slate-700 text-right">98.41%</td>
+                            <td className="border border-slate-700 text-right">100%</td>
                         </tr>
                     </tbody>
                 </table>
@@ -64,6 +64,8 @@ function Dashboard() {
                 <div className="mt-12 mx-3 flex flex-col">
                     <ButtonAction
                         onClick={() => {
+                            clearInterval(time)
+
                             let timer = setInterval(() => {
                                 let rng = Math.round(Math.random());
                                 if (rng) {
